@@ -1826,7 +1826,7 @@ else
 endif
 if dep_thread.found()
   pre_args += '-DHAVE_PTHREAD'
-  if host_machine.system() != 'netbsd' and cc.has_function(
+  if host_machine.system() not in ['netbsd', 'android'] and cc.has_function(
       'pthread_setaffinity_np',
       dependencies : dep_thread,
       prefix : '#include <pthread.h>',
